@@ -15,7 +15,6 @@ import java.io.IOException;
 
 public class MainMenuPanel extends JPanel {
 
-    private final GameMenu gameMenu;
     private BufferedImage planetSpriteSheet;
     private BufferedImage[] starImages; // Array to hold individual star images
     private int currentFrame = 0;
@@ -30,7 +29,6 @@ public class MainMenuPanel extends JPanel {
     private boolean starsInitialized = false; // Flag to track initialization
 
     public MainMenuPanel(GameMenu gameMenu) {
-        this.gameMenu = gameMenu;
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridwidth = GridBagConstraints.REMAINDER;

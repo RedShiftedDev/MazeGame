@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class GameMenu extends JPanel {
     private final JFrame frame;
@@ -23,6 +24,18 @@ public class GameMenu extends JPanel {
         add(mainMenu, "main");
         add(creditsMenu, "credits");
         add(settingsMenu, "settings");
+
+        loadSound();
+        AudioPlayer.loopSound("bgc");
+
+    }
+
+    private void loadSound(){
+        try {
+            AudioPlayer.loadSound("bgc", "/assets/sounds/backgroundSound.wav");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void showMenu(String menuName) {
@@ -42,8 +55,8 @@ public class GameMenu extends JPanel {
     public void startGame(int level) {
         // This method is now called from the SetLevel panel
         frame.remove(this);
-        int[][] maze = MazeLogic.generateMaze(20, 25, level);
-        MazePanel mazePanel = new MazePanel(maze, 20, 25, level);
+        int[][] maze = MazeLogic.generateMaze(10, 20); // Create the maze here
+        MazePanel mazePanel = new MazePanel(maze, 10, 20, level); // Pass maze data
         frame.add(mazePanel);
         frame.pack();
         frame.setLocationRelativeTo(null);

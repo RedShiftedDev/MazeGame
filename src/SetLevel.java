@@ -43,11 +43,8 @@ public class SetLevel extends JPanel {
     // Helper method to create level buttons
     private JButton createLevelButton(String label, int level) {
         JButton button = new JButton(label);
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                gameMenu.startGame(level); // Start game with selected level
-            }
+        button.addActionListener(_ -> {
+            gameMenu.startGame(level); // Start game with selected level
         });
         return button;
     }

@@ -33,12 +33,6 @@ public class PlayerKeyListener extends KeyAdapter {
             case KeyEvent.VK_RIGHT:
                 mazePanel.movePlayer(KeyEvent.VK_RIGHT, isMoving);
                 break;
-            case KeyEvent.VK_EQUALS:
-                mazePanel.handleZoomIn();
-                break;
-            case KeyEvent.VK_MINUS:
-                mazePanel.handleZoomOut();
-                break;
         }
     }
 }
